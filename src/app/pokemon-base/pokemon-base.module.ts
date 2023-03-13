@@ -14,7 +14,8 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
     CommonModule
   ],
   exports: [
-    PokemonListComponent
+    PokemonListComponent,
+    PokemonDetailComponent
   ]
 })
 export class PokemonBaseModule { }

@@ -1,1 +1,7 @@
-<p>pokemon-detail works!</p>
+<tr>
+  <td>{{detail.id}}- </td>
+  <td>{{ detail.name }}</td>
+  <td>{{ detail.type }}</td>
+  <td >{{detail.isCool==true ? 'IsCool' : 'IsNotCool'}}</td>
+  <button (click)="onRemove()">Remove Pokemon</button>
+</tr>
