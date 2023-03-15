@@ -1,0 +1,6 @@
+<form #form="ngForm">
+  <input type="text" [(ngModel)]="pokemon.name" name="name">
+</form>
+
+MODEL: {{ pokemon | json }}
+FORM: {{ form.value | json }}

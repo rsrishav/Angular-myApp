@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
+import { PokemonTemplateFormComponent } from './pokemon-template-form/pokemon-template-form.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [	
+    AppComponent,
+      PokemonTemplateFormComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
