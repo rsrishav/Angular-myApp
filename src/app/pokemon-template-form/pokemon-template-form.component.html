@@ -1,6 +1,23 @@
 <form #form="ngForm">
   <input type="text" [(ngModel)]="pokemon.name" name="name">
-</form>
 
+
+
+
+<br>
+Pokemon is Cool ?
+<label>
+  <input type="radio" name="isCool" [value]="true" [ngModel] = "pokemon.isCool"/> True
+</label>
+<label>
+  <input type="radio" name="isCool" [value]="false" [ngModel] = "pokemon.isCool"/> Flase
+</label>
+<br>
+<label>
+  <input type="checkbox" name="acceptTerms" [(ngModel)] = "pokemon.acceptTerms"> Accept Terms
+</label>
+
+<br>
 MODEL: {{ pokemon | json }}
 FORM: {{ form.value | json }}
+</form>

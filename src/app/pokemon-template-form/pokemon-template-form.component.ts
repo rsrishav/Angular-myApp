@@ -15,6 +15,7 @@ export class PokemonTemplateFormComponent implements OnInit {
   ngOnInit() {
     this.pokemonService.getPokemon(1).subscribe((data: Pokemon) => {
       this.pokemon = data;
+      debugger;
     })
   }
 }
