@@ -1,23 +1,35 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="handleFormData(form)">
   <input type="text" [(ngModel)]="pokemon.name" name="name">
+  <br>
+  Pokemon is Cool ?
+  <label>
+    <input type="radio"
+    name="isCool"
+    [value]="true"
+    #pokemonName="ngModel"
+    [ngModel]="pokemon.isCool" /> True
+  </label>
+  <label>
+    <input type="radio" name="isCool" [value]="false" [ngModel]="pokemon.isCool" /> Flase
+  </label>
+  <br>
+  <label>
+    <input type="checkbox" name="acceptTerms" [(ngModel)]="pokemon.acceptTerms"> Accept Terms
+  </label>
 
-
-
-
-<br>
-Pokemon is Cool ?
-<label>
-  <input type="radio" name="isCool" [value]="true" [ngModel] = "pokemon.isCool"/> True
-</label>
-<label>
-  <input type="radio" name="isCool" [value]="false" [ngModel] = "pokemon.isCool"/> Flase
-</label>
-<br>
-<label>
-  <input type="checkbox" name="acceptTerms" [(ngModel)] = "pokemon.acceptTerms"> Accept Terms
-</label>
-
+  <label>Pokemon Type:
+    <select name="pokemonType" [ngModel]="pokemon.name">
+      <option *ngFor="let type of pokemonType" [value]="type.key" [selected]="type.value === pokemon.type">
+        {{type.value}}</option>
+    </select>
+  </label>
+  <br>
+  <button type="sumbit" [disabled]="!form.valid">Submit</button>
+</form>
 <br>
 MODEL: {{ pokemon | json }}
 FORM: {{ form.value | json }}
-</form>
+<br><br>
+ERROR PRISTINE: <div *ngIf="!pokemonName.pristine">Data is not pristine.</div>
+<br>
+TOUCHED: <div *ngIf="pokemonName.touched">Data is Touched.</div>

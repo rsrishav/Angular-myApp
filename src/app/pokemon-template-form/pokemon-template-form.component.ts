@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../models/pokemon';
+import { Pokemon, PokemonType } from '../models/pokemon';
 import { PokemonService } from '../services/pokemon.service';
 
 @Component({
@@ -10,6 +10,19 @@ import { PokemonService } from '../services/pokemon.service';
 
 export class PokemonTemplateFormComponent implements OnInit {
   pokemon !: Pokemon;
+  pokemonType: PokemonType[] = [
+    {
+      key: 0,
+      value: "Fire"
+    },{
+      key: 1,
+      value: "Water"
+    },{
+      key: 2,
+      value: "Rock"
+    }
+  ]
+
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit() {
@@ -17,5 +30,9 @@ export class PokemonTemplateFormComponent implements OnInit {
       this.pokemon = data;
       debugger;
     })
+  }
+
+  handleFormData(object: any){
+    console.log(object);
   }
 }
