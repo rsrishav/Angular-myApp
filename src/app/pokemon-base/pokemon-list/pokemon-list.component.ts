@@ -34,6 +34,7 @@ export class PokemonListComponent implements OnInit, AfterViewInit {
   //   isStylish: false
   // }]
   @ViewChildren('pokemonRef') pokemonRef !: ElementRef;
+  @ViewChild('pokemonTh') pokemonTh !: ElementRef;
 
   pokemonName: string = "";
 
@@ -68,7 +69,10 @@ export class PokemonListComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    console.log(this.pokemonRef);
+    // console.log(this.pokemonRef);
+
+    console.log(this.pokemonTh);
+    this.pokemonTh.nativeElement.innerText = "Pokemon Name";
   }
 
 }
