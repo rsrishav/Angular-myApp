@@ -107,6 +107,7 @@
   </thead>
   <tbody>
     <app-pokemon-detail
+    #pokemonRef
     *ngFor="let pokemon of pokemons"
     [detail]="pokemon"
     (remove)="handleRemove($event)"><h3>-----------</h3></app-pokemon-detail>

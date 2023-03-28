@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -7,7 +7,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   templateUrl: './pokemon-list.component.html',
   styleUrls: ['./pokemon-list.component.css']
 })
-export class PokemonListComponent implements OnInit {
+export class PokemonListComponent implements OnInit, AfterViewInit {
 
   title: string = "Image source Example: Google Photos";
   imgSrc: string = "https://play-lh.googleusercontent.com/ZyWNGIfzUyoajtFcD7NhMksHEZh37f-MkHVGr5Yfefa-IX7yj9SMfI82Z7a2wpdKCA=w240-h480-rw";
@@ -33,6 +33,7 @@ export class PokemonListComponent implements OnInit {
   //   isCool: false,
   //   isStylish: false
   // }]
+  @ViewChildren('pokemonRef') pokemonRef !: ElementRef;
 
   pokemonName: string = "";
 
@@ -64,6 +65,10 @@ export class PokemonListComponent implements OnInit {
       console.log(data);
       this.pokemons = data;
     })
+  }
+
+  ngAfterViewInit(){
+    console.log(this.pokemonRef);
   }
 
 }
