@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
+interface Nav {
+  link: string,
+  name: string,
+  exact: boolean
+}
 
 
 @Component({
@@ -10,6 +14,20 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  nav: Nav[] = [
+    {
+      link: "/",
+      name: "Home",
+      exact: true
+    },
+    {
+      link: "/badroute",
+      name: "Bad Route",
+      exact: true
+    }
+  ]
+
   title: string = ""
 
   constructor(){

@@ -4,13 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
-import { PokemonTemplateFormComponent } from './pokemon-template-form/pokemon-template-form.component';
+import PokemonFormComponent from './pokemon-template-form/pokemon-template-form.component';
+
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
-      PokemonTemplateFormComponent
+      // PokemonTemplateFormComponent,
+      HomeComponent,
+      NotfoundComponent,
+      HomeComponent,
+      NotfoundComponent
    ],
   imports: [
     BrowserModule,

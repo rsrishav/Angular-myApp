@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Pokemon, PokemonType } from '../models/pokemon';
 import { PokemonService } from '../services/pokemon.service';
 
@@ -8,31 +9,38 @@ import { PokemonService } from '../services/pokemon.service';
   styleUrls: ['./pokemon-template-form.component.css']
 })
 
-export class PokemonTemplateFormComponent implements OnInit {
+export default class PokemonFormComponent implements OnInit {
   pokemon !: Pokemon;
   pokemonType: PokemonType[] = [
     {
       key: 0,
       value: "Fire"
-    },{
+    }, {
       key: 1,
       value: "Water"
-    },{
+    }, {
       key: 2,
       value: "Rock"
     }
   ]
 
-  constructor(private pokemonService: PokemonService) { }
+  constructor(private pokemonService: PokemonService, private router: Router,
+    private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    this.pokemonService.getPokemon(1).subscribe((data: Pokemon) => {
-      this.pokemon = data;
-      debugger;
-    })
+    ngOnInit() {
+      this.pokemon = {} as Pokemon;
+      this.route.params.subscribe((data: Params) => {
+          return this.pokemonService.getPokemon(data['id']).subscribe((data: Pokemon) => {
+            this.pokemon = data;
+        });
+      })
+    }
+
+  back() : void{
+    this.router.navigate(["/pokemon"])
   }
 
-  handleFormData(object: any){
+  handleFormData(object: any) {
     console.log(object);
   }
 }
